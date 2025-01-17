@@ -1,13 +1,13 @@
 #!/bin/bash
 
-competitions=("titanic" "spaceship_titanic" "ghouls_goblins_and_ghosts_boo" "house_prices" \
-                "classification_with_an_academic_success_dataset" "bank_churn" "obesity_risks" "plate_defect")
+competitions=("_ML2023Spring-hw1")
 start_run=1
 end_run=5
-dest_dir_param="all_tools"
+dest_dir_param="all_tools_4o"
 model="gpt_4o"
 
 run_experiment() {
+    # conda activate AutoKaggle
     competition=$1
     run_number=$2
 
@@ -17,8 +17,8 @@ run_experiment() {
     python framework.py --competition "$competition" --model "$model"
 
     # Define source and destination directories
-    source_dir="multi_agents/competition/$competition"
-    dest_dir="multi_agents/experiments_history/$competition/$model/$dest_dir_param/$run_number"
+    source_dir="/home/yxlin/ML2025HW2/AutoKaggle/multi_agents/competition/$competition"
+    dest_dir="/home/yxlin/ML2025HW2/AutoKaggle/multi_agents/experiments_history/$competition/$model/$dest_dir_param/$run_number"
 
     # Create destination directory if it doesn't exist
     mkdir -p "$dest_dir"
